@@ -1,69 +1,95 @@
 
-fis.match('/page/**/*.html', {
-    release: '/dist/$0',
-    optimizer: fis.plugin('html-compress', {})
-});
+// fis.match('/page/**/*.html', {
+// release: '/dist/$0',
+// optimizer: fis.plugin('html-compress', {})
+// });
 
-fis.match('/widget/**/*', {
-    isMod: true
-});
+// fis.match('/widget/**/*', {
+// isMod: true
+// });
 
-fis.match('/test/**/*', {
-    release: '$0'
-});
+// fis.match('/test/**/*', {
+// release: '$0'
+// });
 
-fis.match('*.{js,css}', {
-  useHash: true
-});
+// fis.match('*.{js,css}', {
+// useHash: true
+// });
 
-fis.match('::image', {
-  useHash: true
-});
+// fis.match('::image', {
+// useHash: true
+// });
 
-fis.match('/widget/js/**/*.js', {
-  parser: fis.plugin('babel-5.x', {}),
-  optimizer: fis.plugin('uglify-js', {})
-});
+// fis.match('/widget/js/**/*.js', {
+// parser: fis.plugin('babel-5.x', {}),
+// optimizer: fis.plugin('uglify-js', {})
+// });
 
-fis.match('/widget/js/**/*.less', {
-  parser: fis.plugin('less-2.x'),
-  rExt: '.css',
-  preprocessor: fis.plugin('autoprefixer', {
-    'browsers': [
-      'ie >= 8',
-      'ff >= 10',
-      'chrome >= 20',
-      'safari >= 7',
-      'opera >= 10',
-      'ios >= 7',
-      'android >= 2.3'
-    ]
-  }),
-  isCssLike: true,
-  release: '/widget/css/$0'
-});
+// fis.match('/widget/js/**/*.less', {
+// parser: fis.plugin('less-2.x'),
+// rExt: '.css',
+// preprocessor: fis.plugin('autoprefixer', {
+// 'browsers': [
+// 'ie >= 8',
+// 'ff >= 10',
+// 'chrome >= 20',
+// 'safari >= 7',
+// 'opera >= 10',
+// 'ios >= 7',
+// 'android >= 2.3'
+// ]
+// }),
+// isCssLike: true,
+// release: '/widget/css/$0'
+// });
 
-fis.match('*.css', {
-  optimizer: fis.plugin('clean-css',{})
-});
+// fis.match('*.css', {
+// optimizer: fis.plugin('clean-css',{})
+// });
 
-fis.match('/widget/img/**/*.png', {
-  optimizer: fis.plugin('png-compressor', {})
-});
+// fis.match('/widget/img/**/*.png', {
+// optimizer: fis.plugin('png-compressor', {})
+// });
 
-fis.match('/static/lib/{*,**/*}.js', {
-  isMod: true,
-  release: '/static/$0'
-});
+// fis.match('/static/lib/{*,**/*}.js', {
+// isMod: true,
+// release: '/static/$0'
+// });
 
 
 fis.media('test')
-  .match('*', {
-    useHash: false,
-    optimizer: null
-  });
+    .match('*', {
+        useHash: false,
+        optimizer: null
+    });
 
-fis.media('prod');
+fis.media('prod')
+    .match('/page/index.html', {
+        release: '/prod/$0'
+    })
+    .match('/widget/less/index.less', {
+        parser: fis.plugin('less-2.x'),
+        rExt: '.css'
+        // preprocessor: fis.plugin('autoprefixer', {
+        //     'browsers': [
+        //         'ie >= 8',
+        //         'ff >= 10',
+        //         'chrome >= 20',
+        //         'safari >= 7',
+        //         'opera >= 10',
+        //         'ios >= 7',
+        //         'android >= 2.3'
+        //     ]
+        // }),
+        // isCssLike: true
+        // release: '/prod/css/$0',
+        // packTo: '/prod/css/all.css',
+        // useHash: true
+        // optimizer: fis.plugin('css-compressor', {
+        //     'compatibility': 'ie8',
+        //     'noAdvanced': true
+        // })
+    });
 
 
 

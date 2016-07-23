@@ -20,6 +20,11 @@
     "url": "https://github.com/fis-scaffold/default/issues"
   },
   "homepage": "https://github.com/fis-scaffold/default",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "fis3-parser-less-2.5.x": "*",
+    "fis-parser-less-2.x": "*",
+    "fis3-preprocessor-autoprefixer": "*",
+    "fis3-optimizer-css-compressor": "*"
   }
 }

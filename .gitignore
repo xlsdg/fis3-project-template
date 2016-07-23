@@ -1,5 +1,5 @@
-/node_modules
-
-/output
-
-/components
+node_modules/
+output/
+components/
+.DS_Store
+npm-debug.log
