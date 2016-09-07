@@ -64,12 +64,12 @@ fis.media('test')
     });
 
 fis.media('prod')
-    .match('/page/index.html', {
+    .match('page/index.html', {
         release: '/prod/$0'
     })
-    .match('/widget/less/index.less', {
-        parser: fis.plugin('less-2.x'),
-        rExt: '.css'
+    .match('widget/less/index.less', {
+        parser: fis.plugin('less-2.5.x', {}),
+        rExt: '.css',
         // preprocessor: fis.plugin('autoprefixer', {
         //     'browsers': [
         //         'ie >= 8',
@@ -81,10 +81,10 @@ fis.media('prod')
         //         'android >= 2.3'
         //     ]
         // }),
-        // isCssLike: true
-        // release: '/prod/css/$0',
+        isCssLike: true,
+        release: 'prod/css/',
         // packTo: '/prod/css/all.css',
-        // useHash: true
+        useHash: true
         // optimizer: fis.plugin('css-compressor', {
         //     'compatibility': 'ie8',
         //     'noAdvanced': true
